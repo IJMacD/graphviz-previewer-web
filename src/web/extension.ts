@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// Create and show a new webview
 		const panel = vscode.window.createWebviewPanel(
 			'graphviz-previewer-web', // Identifies the type of the webview. Used internally
-			'GraphViz Preview', // Title of the panel displayed to the user
+			'Graphviz Preview', // Title of the panel displayed to the user
 			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
 			// Webview options. More on these later.
 			{
@@ -52,7 +52,7 @@ function getWebviewContent(content: string) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cat Coding</title>
+	<title>Graphviz Preview</title>
 </head>
 <body>
   <pre>

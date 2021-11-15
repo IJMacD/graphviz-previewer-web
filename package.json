@@ -2,8 +2,8 @@
 	"name": "graphviz-previewer-web",
 	"publisher": "ijmacd",
 	"displayName": "Graphviz Previewer Web",
-	"description": "Preview GraphViz Dot files without external dependencies",
-	"version": "0.0.2",
+	"description": "Preview Graphviz Dot files without external dependencies",
+	"version": "0.0.3",
 	"repository": {
 		"url": "https://github.com/IJMacD/graphviz-previewer-web.git"
 	},
