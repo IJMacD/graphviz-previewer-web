@@ -1,4 +1,4 @@
-# graphviz-previewer-web README
+# Graphviz Previewer Web
 
 This extension allows you to preview GraphViz dot files with no external dependencies.
 
@@ -17,7 +17,7 @@ This extension allows you to preview GraphViz dot files with no external depende
         Insect -> Animal;
     }
 
-If you have a GraphViz dot file open in an editor you can open the command palette and type "GraphViz: Preview Dot File" and a preview of the generated graph will open.
+If you have a Graphviz dot file open in an editor you can open the command palette and type "Graphviz: Preview Dot File" and a preview of the generated graph will open.
 
 ![Sample Output](sample.png)
 
