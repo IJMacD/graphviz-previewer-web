@@ -1,0 +1,12 @@
+digraph Life {
+    Dog -> Canine;
+    Canine -> Mammal;
+    Mammal -> Vertibrate;
+    Vertibrate -> Animal;
+    Cat -> Feline;
+    Feline -> Mammal;
+    Equine -> Mammal;
+    Wolf -> Canine;
+    Lion -> Feline;
+    Insect -> Animal;
+}
