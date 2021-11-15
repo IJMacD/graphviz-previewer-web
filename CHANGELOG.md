@@ -1,9 +1,20 @@
 # Change Log
 
-All notable changes to the "graphviz-previewer-web2" extension will be documented in this file.
+All notable changes to the "Graphviz Previewer Web" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [v0.0.4]
+
+- Better dot file injection
+
+## [v0.0.3]
+
+- More Casing
+
+## [v0.0.2]
+
+- Casing
+
+## [v0.0.1]
 
 - Initial release

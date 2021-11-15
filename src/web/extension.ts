@@ -55,11 +55,6 @@ function getWebviewContent(content: string) {
 	<title>Graphviz Preview</title>
 </head>
 <body>
-  <pre>
-  <code id="graph-source">
-	${content}
-  </code>
-  </pre>
 	  <div id="graph"></div>
 
 	  <script>
@@ -398,17 +393,14 @@ function getWebviewContent(content: string) {
 		})));
 	</script>
 	<script>
-		const graphSourceEl = document.getElementById("graph-source");
 		const graphEl = document.getElementById("graph");
-		graphSourceEl.style.display = "none";
 
 		const worker = new Worker('${workerDataURI()}');
 
 		worker.onmessage = (e) => {
 			if (e.data.error) {
 				console.error(e.data.error);
-				graphSourceEl.style.display = "";
-				graphEl.innerHTML = "<p style=\\"color: darkred\\">" + e.data.error.message + "</p>";
+				graphEl.innerHTML = "<h1>Graphviz error</h1><pre><code>" + e.data.error.message + "</code></pre>";
 				return;
 			}
 
@@ -422,7 +414,7 @@ function getWebviewContent(content: string) {
 		};
 
 		worker.postMessage({
-			src: graphSourceEl.textContent,
+			src: ${JSON.stringify(content)},
 			options: {
 				engine: "dot",
 				format: "svg",
