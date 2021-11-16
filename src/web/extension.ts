@@ -88,6 +88,7 @@ function getWebviewContent(content: string) {
 
 	<script>
 		const graphEl = document.getElementById("graph");
+		let src = ${JSON.stringify(content)};
 
 		const workerURL = '${workerDataURI()}';
 
@@ -96,15 +97,32 @@ function getWebviewContent(content: string) {
 		const onmessage = (e) => {
 			if (e.data.error) {
 				console.error(e.data);
-				graphEl.innerHTML = "<h1>Graphviz error</h1><pre><code>" + e.data.error.message + "</code></pre>";
 
-				// Worker internal state sometimes messes up
-				// Recreate to avoid
-				worker = new Worker(workerURL);
-				worker.onmessage = onmessage;
-				worker.onerror = (e) => {
-					console.error(e);
-				};
+				// Check for decipherable errors or nonsense
+				const l = e.data.error.message.length;
+				if (e.data.error.message[l-1] === "\\n") {
+					// Report error
+					graphEl.innerHTML = "<h1>Graphviz error</h1><pre><code>" + e.data.error.message + "</code></pre>";
+				} else {
+					// Worker internal state sometimes messes up
+					// Recreate worker
+
+					worker = new Worker(workerURL);
+					worker.onmessage = onmessage;
+					worker.onerror = (e) => {
+						console.error(e);
+					};
+
+					// Retry render
+					worker.postMessage({
+						src,
+						options: {
+							engine: "dot",
+							format: "svg",
+							files: [],
+						}
+					});
+				}
 
 				return;
 			}
@@ -123,7 +141,7 @@ function getWebviewContent(content: string) {
 
 		// Initialse first render
 		worker.postMessage({
-			src: ${JSON.stringify(content)},
+			src,
 			options: {
 				engine: "dot",
 				format: "svg",
@@ -134,8 +152,10 @@ function getWebviewContent(content: string) {
 		// Support updates from outside page
 		window.onmessage = (e) => {
 			if (e.data.src) {
+				src = e.data.src;
+
 				worker.postMessage({
-					src: e.data.src,
+					src,
 					options: {
 						engine: "dot",
 						format: "svg",
