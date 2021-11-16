@@ -1,6 +1,6 @@
 # Graphviz Previewer Web
 
-This extension allows you to preview GraphViz dot files with no external dependencies.
+This extension allows you to preview Graphviz dot files with no external dependencies.
 
 ## Features
 
