@@ -13,17 +13,24 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('graphviz-previewer-web.start', () => {
+	let disposable1 = vscode.commands.registerCommand('graphviz-previewer-web.start', createCommand(vscode.ViewColumn.Active));
+	let disposable2 = vscode.commands.registerCommand('graphviz-previewer-web.previewSide', createCommand(vscode.ViewColumn.Beside));
+
+	context.subscriptions.push(disposable1);
+	context.subscriptions.push(disposable2);
+}
+
+function createCommand(column: vscode.ViewColumn): () => any {
+	return () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
 		// vscode.window.showInformationMessage('Hello World from !');
-
 		// Create and show a new webview
 		const panel = vscode.window.createWebviewPanel(
-			'graphviz-previewer-web', // Identifies the type of the webview. Used internally
-			'Graphviz Preview', // Title of the panel displayed to the user
-			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-			// Webview options. More on these later.
+			'graphviz-previewer-web',
+			'Graphviz Preview',
+			column,
+			// Webview options.
 			{
 				enableScripts: true,
 			}
@@ -37,9 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
 		} else {
 			panel.webview.html = getErrorContent();
 		}
-	});
-
-	context.subscriptions.push(disposable);
+	};
 }
 
 // this method is called when your extension is deactivated

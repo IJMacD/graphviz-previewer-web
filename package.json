@@ -3,7 +3,7 @@
 	"publisher": "ijmacd",
 	"displayName": "Graphviz Previewer Web",
 	"description": "Preview Graphviz Dot files without external dependencies",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"repository": {
 		"url": "https://github.com/IJMacD/graphviz-previewer-web.git"
 	},
@@ -15,7 +15,8 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:graphviz-previewer-web.start"
+        "onCommand:graphviz-previewer-web.start",
+        "onCommand:graphviz-previewer-web.previewSide"
 	],
 	"browser": "./dist/web/extension.js",
 	"contributes": {
@@ -40,6 +41,12 @@
 				"title": "Preview Dot File",
 				"category": "Graphviz",
 				"icon": "$(circuit-board)"
+			},
+			{
+				"command": "graphviz-previewer-web.previewSide",
+				"title": "Preview Dot File (Side)",
+				"category": "Graphviz",
+				"icon": "$(circuit-board)"
 			}
 		],
 		"menus": {
@@ -47,10 +54,18 @@
 				{
 					"when": "editorLangId == dot",
 					"command": "graphviz-previewer-web.start",
+					"alt": "graphviz-previewer-web.previewSide",
 					"group": "navigation"
 				}
 			]
-		}
+		},
+		"grammars": [
+		  {
+			"language": "dot",
+			"scopeName": "source.dot",
+			"path": "dot.plist"
+		  }
+		]
 	},
 	"scripts": {
 		"test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",

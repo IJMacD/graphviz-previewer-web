@@ -2,8 +2,12 @@
 
 All notable changes to the "Graphviz Previewer Web" extension will be documented in this file.
 
+## [v0.0.6]
+- Add dot file grammar
+- Add option to open in new panel group
+
 ## [v0.0.5]
-Add editor menu icon
+- Add editor menu icon
 
 ## [v0.0.4]
 

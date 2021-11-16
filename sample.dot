@@ -1,10 +1,15 @@
 digraph Life {
+    // hello
+    node [shape = circle]
+    Dog [label = "Good Boy", style = filled, color = "#408000", fontcolor = "#E0E0E0"]
     Dog -> Canine;
     Canine -> Mammal;
     Mammal -> Vertibrate;
     Vertibrate -> Animal;
     Cat -> Feline;
     Feline -> Mammal;
+    /* comment */
+    # also
     Equine -> Mammal;
     Wolf -> Canine;
     Lion -> Feline;
