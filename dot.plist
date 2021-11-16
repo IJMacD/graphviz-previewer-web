@@ -41,33 +41,34 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>edge definition: node1 (&lt;-|-&gt;|--) node2</string>
+			<string>edge definition: (&lt;-|-&gt;|--) node2</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.other.dot</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
 					<string>keyword.operator.dot</string>
 				</dict>
-				<key>5</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>variable.other.dot</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([A-Za-z0-9]+)\s*((&lt;|-)(&gt;|-))\s*([A-Za-z0-9]+)</string>
+			<string>((&lt;|-)(&gt;|-))\s*([A-Za-z0-9]+)</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(node|edge|graph|digraph|subgraph|strict)\b</string>
+			<string>^\s*(node|edge|graph|digraph|subgraph|strict)\b</string>
 			<key>name</key>
 			<string>storage.type.dot</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^\s*([A-Za-z0-9]+)</string>
+			<key>name</key>
+			<string>variable.other.dot</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -92,6 +93,18 @@
 			<string>\b(box|polygon|ellipse|circle|point|egg|triangle|plaintext|diamond|trapezium|parallelogram|house|pentagon|hexagon|septagon|octagon|doublecircle|doubleoctagon|tripleoctagon|invtriangle|invtrapezium|invhouse|Mdiamond|Msquare|Mcircle|rect|rectangle|none|note|tab|folder|box3d|component|max|min|same|filled)\b</string>
 			<key>name</key>
 			<string>support.constant.dot</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.dot</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>=\s*([A-Za-z]+)\b</string>
 		</dict>
 		<dict>
 			<key>begin</key>
