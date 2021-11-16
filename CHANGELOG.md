@@ -2,6 +2,9 @@
 
 All notable changes to the "Graphviz Previewer Web" extension will be documented in this file.
 
+## [v0.0.7]
+- Improve dot file grammar
+
 ## [v0.0.6]
 - Add dot file grammar
 - Add option to open in new panel group
