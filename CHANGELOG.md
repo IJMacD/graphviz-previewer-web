@@ -2,6 +2,8 @@
 
 All notable changes to the "Graphviz Previewer Web" extension will be documented in this file.
 
+## [v0.0.5]
+Add editor menu icon
 
 ## [v0.0.4]
 
