@@ -37,7 +37,7 @@
 			<key>comment</key>
 			<string>named digraph declaration: "digraph NAME {"</string>
 			<key>match</key>
-			<string> ?(digraph)[ \t]+([A-Za-z0-9]+)\s*(\{)</string>
+			<string>(?i) ?(digraph)[ \t]+([A-Za-z0-9]+)\s*(\{)</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -60,7 +60,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>^\s*(node|edge|graph|digraph|subgraph|strict)\b</string>
+			<string>(?i)^\s*(node|edge|graph|digraph|subgraph|strict)\b</string>
 			<key>name</key>
 			<string>storage.type.dot</string>
 		</dict>
