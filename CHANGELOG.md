@@ -2,6 +2,9 @@
 
 All notable changes to the "Graphviz Previewer Web" extension will be documented in this file.
 
+## [v0.0.9]
+- Allow underscores in identifiers
+
 ## [v0.0.8]
 - Live updates
 

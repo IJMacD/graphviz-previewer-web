@@ -3,7 +3,7 @@
 	"publisher": "ijmacd",
 	"displayName": "Graphviz Previewer Web",
 	"description": "Preview Graphviz Dot files without external dependencies",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"repository": {
 		"url": "https://github.com/IJMacD/graphviz-previewer-web.git"
 	},
@@ -15,26 +15,26 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:graphviz-previewer-web.start",
-        "onCommand:graphviz-previewer-web.previewSide"
+		"onCommand:graphviz-previewer-web.start",
+		"onCommand:graphviz-previewer-web.previewSide"
 	],
 	"browser": "./dist/web/extension.js",
 	"contributes": {
-        "languages": [
-            {
-                "id": "dot",
-                "aliases": [
-                    "Graphviz (DOT)",
-                    "dot"
-                ],
-                "extensions": [
-                    ".dot",
-                    ".DOT",
-                    ".gv"
-                ],
-                "configuration": "dot.configuration.json"
-            }
-        ],
+		"languages": [
+			{
+				"id": "dot",
+				"aliases": [
+					"Graphviz (DOT)",
+					"dot"
+				],
+				"extensions": [
+					".dot",
+					".DOT",
+					".gv"
+				],
+				"configuration": "dot.configuration.json"
+			}
+		],
 		"commands": [
 			{
 				"command": "graphviz-previewer-web.start",
@@ -60,11 +60,11 @@
 			]
 		},
 		"grammars": [
-		  {
-			"language": "dot",
-			"scopeName": "source.dot",
-			"path": "dot.plist"
-		  }
+			{
+				"language": "dot",
+				"scopeName": "source.dot",
+				"path": "dot.plist"
+			}
 		]
 	},
 	"scripts": {
